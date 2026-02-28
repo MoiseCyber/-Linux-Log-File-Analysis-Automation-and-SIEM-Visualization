@@ -71,3 +71,37 @@ These patterns strongly suggest a potential **brute-force attack** or automated 
 #### Evidence from Log Review
 
 ![Step 3 - Identified Suspicious Events](step3_identified_suspicious_events.png.png)
+
+---
+
+## Step 4 — Organizing Security Findings
+
+To better visualize suspicious authentication activity, extracted log events were organized into a structured analysis table using spreadsheet tooling.
+
+This allowed identification of repeated login attempts, attacker source patterns, and automated brute-force behavior.
+
+### Organized Authentication Events
+
+![Step 4 Organized Authentication Findings](step4_organized_authentication_findings.png.png)
+
+---
+
+### Key Observations
+
+- Multiple authentication failures originated from the same external IP addresses.
+- Rapid sequential login attempts indicate automated brute-force activity.
+- Several unknown user login attempts suggest username enumeration.
+- Activity occurred in bursts, consistent with scripted attacks.
+
+---
+---
+
+## Step 5 – Summary of Findings
+
+The manual analysis of Linux authentication logs revealed multiple failed SSH login attempts originating from several external hosts. A significant concentration of authentication failures was observed from the IP address **218.188.2.4**, followed by additional attempts from other external domains including **061092085098.ctinets.com** and **d211-116-254-214.rev.krline.net**.
+
+The repeated login failures occurred within very short time intervals and targeted non-existent or unknown user accounts, indicating automated authentication attempts rather than legitimate user activity. The high frequency and sequential nature of these events strongly suggest brute-force or credential-enumeration behavior.
+
+No successful authentication events associated with these sources were identified during the analyzed timeframe, indicating that the attack attempts were unsuccessful. However, the persistence and pattern of retries demonstrate active external probing against the SSH service.
+
+Overall, the findings highlight the importance of continuous log monitoring, access control hardening, and automated detection mechanisms to identify and respond to unauthorized access attempts in real time.
