@@ -53,3 +53,21 @@ Relevant to:
 The first 20–40 lines of the Linux authentication log file were reviewed using VS Code to identify authentication-related events such as login failures and unknown users. Relevant entries were highlighted for further analysis in accordance with SOC monitoring procedures.
 
 ![Initial Authentication Log Review](repeated_failed_root_ssh_attempts.png.png)
+---
+
+### 🔎 Step 3 — Identify Suspicious Events
+
+After reviewing the initial log entries, suspicious authentication behavior was identified by analyzing repeated login failures and invalid user attempts.
+
+Key indicators observed:
+
+- Multiple failed SSH login attempts occurring within seconds
+- Repeated authentication failures targeting the **root** account
+- Login attempts from the same external host/IP address
+- "user unknown" events indicating attempts to access non-existent accounts
+
+These patterns strongly suggest a potential **brute-force attack** or automated login scanning activity, which is a common threat monitored by SOC analysts.
+
+#### Evidence from Log Review
+
+![Step 3 - Identified Suspicious Events](step3_identified_suspicious_events.png.png)
