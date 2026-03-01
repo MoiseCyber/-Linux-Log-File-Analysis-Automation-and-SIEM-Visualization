@@ -253,8 +253,7 @@ This confirms that authentication failures were not random events but systematic
 
 Pattern clustering helps analysts quickly validate malicious automation without manually reviewing thousands of logs.
 
-![Patterns View - Repetitive Authentication Failures](images/objective3_patterns_analysis.png)
-
+![Patterns View - Repetitive Authentication Failures](objective3_patterns_analysis.png)
 ---
 
 ### Statistics View — Identifying Top Attack Sources
