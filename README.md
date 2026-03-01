@@ -216,7 +216,7 @@ These patterns are commonly associated with unauthorized access attempts.
 - Multiple attempts targeted privileged accounts.  
 - Attack patterns matched typical brute-force indicators.
 
-## Step 4: Visualization and Threat Analysis in Splunk
+## Visualization and Threat Analysis in Splunk
 
 After executing the SPL search query, Splunk was used to analyze authentication activity through multiple investigation views commonly used in Security Operations Centers (SOC).
 
@@ -253,6 +253,7 @@ This confirms that authentication failures were not random events but systematic
 
 Pattern clustering helps analysts quickly validate malicious automation without manually reviewing thousands of logs.
 
+![Patterns View - Repetitive Authentication Failures](images/objective3_patterns_analysis.png)
 ---
 
 ### Statistics View — Identifying Top Attack Sources
