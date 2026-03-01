@@ -115,7 +115,7 @@ The Python script was executed in VS Code to automatically analyze Linux authent
 
 The script successfully detected multiple suspicious authentication events including failed logins and unknown user attempts.
 ### Script Execution Output
-![Automated Log Analysis Results](objective2_python_log_analysis_results.png)
+![Python Log Analysis Execution](step1_python_log_analysis_execution.png)
 The output confirms that the automation script successfully identified suspicious authentication activity within the selected log range.
 
 
