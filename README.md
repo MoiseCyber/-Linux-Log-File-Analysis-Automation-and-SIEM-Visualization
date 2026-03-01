@@ -117,6 +117,13 @@ The script successfully detected multiple suspicious authentication events inclu
 ### Script Execution Output
 ![Python Log Analysis Execution](step1_python_log_analysis_execution.png)
 The output confirms that the automation script successfully identified suspicious authentication activity within the selected log range.
+## Step 2: Verify CSV Export in Excel
+
+The exported CSV file was opened in Microsoft Excel to verify that suspicious log entries were successfully saved in a structured and readable format.
+
+The results confirm that authentication events were correctly exported into columns, enabling easier filtering, investigation, and reporting.
+
+![CSV Export Verified](objective2_csv_export_verified_excel.png)
 
 
 
