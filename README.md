@@ -96,7 +96,7 @@ This allowed identification of repeated login attempts, attacker source patterns
 ---
 ---
 
-## Step 5 – Summary of Findings
+## – Step 5 Summary of Findings
 
 The manual analysis of Linux authentication logs revealed multiple failed SSH login attempts originating from several external hosts. A significant concentration of authentication failures was observed from the IP address **218.188.2.4**, followed by additional attempts from other external domains including **061092085098.ctinets.com** and **d211-116-254-214.rev.krline.net**.
 
@@ -105,3 +105,27 @@ The repeated login failures occurred within very short time intervals and target
 No successful authentication events associated with these sources were identified during the analyzed timeframe, indicating that the attack attempts were unsuccessful. However, the persistence and pattern of retries demonstrate active external probing against the SSH service.
 
 Overall, the findings highlight the importance of continuous log monitoring, access control hardening, and automated detection mechanisms to identify and respond to unauthorized access attempts in real time.
+## Objective 2 – Automated Log Analysis (Python)
+
+A Python script was developed to automatically analyze Linux authentication logs and detect suspicious activity.
+
+### Script Execution Output
+
+![Automated Log Analysis Results](objective2_python_log_analysis_results.png)
+
+## Step 6: Automated Log Analysis Summary
+
+A Python-based log analysis script was developed to automate the detection of suspicious authentication activity within Linux system logs.
+
+The script analyzed log entries between lines **200 and 500** of the `Linux_2k.log` dataset and detected multiple failed login attempts originating from several external hosts. The repeated authentication failures from the same sources suggest potential **brute-force** or **automated credential-guessing attacks**.
+
+Additionally, several events contained **unknown user** authentication attempts, indicating possible **username enumeration activity**, where attackers attempt to discover valid system accounts.
+
+Compared to manual log review, the automated approach significantly improved analysis efficiency by:
+
+- Automatically extracting remote host information  
+- Counting repeated authentication failures  
+- Identifying the most active attacking sources  
+- Highlighting suspicious behavioral patterns across log entries  
+
+These results demonstrate how automation can assist SOC analysts in rapidly detecting malicious activity and prioritizing investigation efforts within large log datasets.
