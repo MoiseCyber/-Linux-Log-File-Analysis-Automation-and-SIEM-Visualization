@@ -272,6 +272,7 @@ Findings included:
 
 This aggregation enables rapid identification of the most active attackers.
 
+![Top Attacker IPs - Statistics View](objective3_top_attacker_ips_statistics.png)
 ---
 
 ### Visualization View — Attack Timeline Analysis
@@ -286,6 +287,7 @@ The timeline revealed:
 
 These characteristics strongly indicate automated brute-force attempts.
 
+![Attack Distribution Visualization](objective3_attack_distribution_visualization.png)
 ---
 
 ### Security Interpretation
