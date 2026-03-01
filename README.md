@@ -109,14 +109,14 @@ Overall, the findings highlight the importance of continuous log monitoring, acc
 
 A Python script was developed to automatically analyze Linux authentication logs and detect suspicious activity.
 
-### Script Execution Output
-
 ## Step 1: Execute the Log Analysis Script
 
 The Python script was executed in VS Code to automatically analyze Linux authentication logs between lines 200 and 500.
 
 The script successfully detected multiple suspicious authentication events including failed logins and unknown user attempts.
-
+### Script Execution Output
+![Automated Log Analysis Results](objective2_python_log_analysis_results.png)
+The output confirms that the automation script successfully identified suspicious authentication activity within the selected log range.
 
 
 
