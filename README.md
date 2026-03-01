@@ -215,3 +215,99 @@ These patterns are commonly associated with unauthorized access attempts.
 - Events occurred in repeated bursts over time.  
 - Multiple attempts targeted privileged accounts.  
 - Attack patterns matched typical brute-force indicators.
+
+## Step 4: Visualization and Threat Analysis in Splunk
+
+After executing the SPL search query, Splunk was used to analyze authentication activity through multiple investigation views commonly used in Security Operations Centers (SOC).
+
+The objective was to transform raw log data into actionable security insights by identifying attack patterns, sources, and behavioral trends.
+
+---
+
+### Events View — Identifying Suspicious Activity
+
+The **Events** tab displays individual log entries matching the search criteria.
+
+Analysis revealed:
+
+- Repeated failed login attempts
+- Continuous targeting of the **root** account
+- Multiple authentication failures originating from the same external IP address
+- Attempts occurring within very short time intervals
+
+One source IP (`207.243.167.114`) appeared repeatedly attempting authentication against privileged accounts, indicating likely brute-force behavior.
+
+This represents an immediate SOC investigation trigger.
+
+---
+
+### Patterns View — Confirming Repetitive Behavior
+
+Switching to the Patterns tab allowed Splunk to automatically group similar log events.
+
+A dominant pattern emerged:
+
+"Failed password for root"
+
+This confirms that authentication failures were not random events but systematic attempts using the same attack method.
+
+Pattern clustering helps analysts quickly validate malicious automation without manually reviewing thousands of logs.
+
+---
+
+### Statistics View — Identifying Top Attack Sources
+
+The **Statistics** tab was used to aggregate events by key investigation fields such as:
+
+- Source IP address
+- Targeted user accounts
+- Event frequency
+
+Findings included:
+
+- Certain IP addresses generated significantly higher event counts
+- The **root** account was consistently targeted
+- Attack attempts originated from external hosts
+
+This aggregation enables rapid identification of the most active attackers.
+
+---
+
+### Visualization View — Attack Timeline Analysis
+
+In the **Visualization** tab, a line chart was created to plot authentication failures over time.
+
+The timeline revealed:
+
+- Sharp spikes in authentication failures
+- Bursty activity occurring within short periods
+- Repeated attack waves rather than isolated incidents
+
+These characteristics strongly indicate automated brute-force attempts.
+
+---
+
+### Security Interpretation
+
+The combined analysis demonstrates:
+
+- Time-based attack bursts
+- Repeated targeting of privileged accounts
+- Automated credential-guessing behavior
+- Consistent attacker source activity
+
+This workflow illustrates how SIEM platforms like Splunk enable analysts to detect threats at scale by correlating events across time, users, and attacker sources.
+
+---
+
+### SOC Value Demonstrated
+
+This exercise simulates a real-world SOC investigation workflow:
+
+1. Ingest logs into SIEM
+2. Filter suspicious activity using SPL queries
+3. Identify attackers and targets
+4. Visualize attack patterns
+5. Produce actionable security findings
+
+Splunk significantly reduces analysis time compared to manual log review while improving threat detection accuracy.
