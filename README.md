@@ -111,21 +111,12 @@ A Python script was developed to automatically analyze Linux authentication logs
 
 ### Script Execution Output
 
-![Automated Log Analysis Results](objective2_python_log_analysis_results.png)
+## Step 1: Execute the Log Analysis Script
 
-## Step 6: Automated Log Analysis Summary
+The Python script was executed in VS Code to automatically analyze Linux authentication logs between lines 200 and 500.
 
-A Python-based log analysis script was developed to automate the detection of suspicious authentication activity within Linux system logs.
+The script successfully detected multiple suspicious authentication events including failed logins and unknown user attempts.
 
-The script analyzed log entries between lines **200 and 500** of the `Linux_2k.log` dataset and detected multiple failed login attempts originating from several external hosts. The repeated authentication failures from the same sources suggest potential **brute-force** or **automated credential-guessing attacks**.
 
-Additionally, several events contained **unknown user** authentication attempts, indicating possible **username enumeration activity**, where attackers attempt to discover valid system accounts.
 
-Compared to manual log review, the automated approach significantly improved analysis efficiency by:
 
-- Automatically extracting remote host information  
-- Counting repeated authentication failures  
-- Identifying the most active attacking sources  
-- Highlighting suspicious behavioral patterns across log entries  
-
-These results demonstrate how automation can assist SOC analysts in rapidly detecting malicious activity and prioritizing investigation efforts within large log datasets.
