@@ -125,5 +125,93 @@ The results confirm that authentication events were correctly exported into colu
 
 ![CSV Export Verified](objective2_csv_export_verified_excel.png)
 
+## 🔎 Splunk Log Analysis — Suspicious Authentication Activity
 
+## Overview
 
+In this objective, **Splunk Enterprise** was used to ingest and analyze Linux authentication logs previously examined through manual and automated methods.
+
+The goal was to simulate a **Security Operations Center (SOC)** workflow by identifying suspicious authentication activity at scale using SIEM capabilities such as searching, filtering, and event visualization.
+
+The `Linux_2k.log` dataset was uploaded into Splunk and indexed for investigation.
+
+### Data Ingestion
+
+The `Linux_2k.log` dataset was uploaded into Splunk using the **Add Data** feature.  
+Splunk automatically detected the log structure and indexed approximately 2,000 events.
+
+Key configuration:
+- Source: `Linux_2k.log`
+- Sourcetype: `linux_auth_logs`
+- Index: Default
+- Host: Local system constant value
+
+This allowed Splunk to normalize and make the log data searchable.
+
+---
+
+### Search and Filtering
+
+To identify suspicious authentication behavior, I executed the following SPL query:
+
+```spl
+source="Linux_2k.log" sourcetype="linux_auth_logs"
+("Failed password" OR "authentication failure" OR "invalid user" OR "user unknown")
+```
+## Analysis Performed
+
+Instead of reviewing logs individually, Splunk enabled analysis across three key investigation dimensions:
+
+### 1️⃣ Time-Based Analysis
+
+The event timeline visualization revealed clusters of authentication failures occurring within short time intervals.
+
+This pattern suggests:
+
+- Automated login attempts  
+- Possible brute-force activity  
+- Repeated connection retries from external hosts  
+
+Temporal grouping allows analysts to quickly detect attack bursts that would be difficult to notice manually.
+
+![Attack Timeline](objective3_attack_timeline_visualization.png)
+---
+
+### 2️⃣ Attacker Identification (Source Hosts / IPs)
+
+Log entries contained remote host information attempting authentication against the system.
+
+Observations included:
+
+- Repeated attempts originating from the same remote hosts  
+- External IP addresses targeting privileged accounts  
+- High-frequency login failures from single sources  
+
+This behavior aligns with reconnaissance or credential-guessing attacks.
+
+![Top Attacker IPs](objective3_top_attacker_ips.png)
+---
+
+### 3️⃣ Targeted Users Analysis
+
+The logs showed authentication attempts primarily targeting:
+
+- `root` accounts  
+- Invalid or unknown usernames  
+
+Indicators:
+
+- Attempts against privileged users increase risk severity  
+- Unknown users indicate automated username enumeration  
+
+These patterns are commonly associated with unauthorized access attempts.
+
+![Targeted Users](objective3_targeted_users.png)
+---
+
+## Key Findings
+
+- Hundreds of authentication failures were detected.  
+- Events occurred in repeated bursts over time.  
+- Multiple attempts targeted privileged accounts.  
+- Attack patterns matched typical brute-force indicators.
